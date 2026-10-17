@@ -16,6 +16,7 @@ services:
       ACCESS_TOKEN_EXPIRES: ${ACCESS_TOKEN_EXPIRES:-15m}
       REFRESH_TOKEN_EXPIRES: ${REFRESH_TOKEN_EXPIRES:-7d}
       SEED_ON_STARTUP: ${SEED_ON_STARTUP:-true}
+      PRISMA_FORCE_RESET: ${PRISMA_FORCE_RESET:-true}
       APP_URL: ${APP_URL:-https://mediko.simulcast.com.np}
     extra_hosts:
       # Direct connection to host MySQL on VPS

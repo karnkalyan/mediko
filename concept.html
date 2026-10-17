@@ -1,0 +1,2225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mediko Bazar Detailed Proposal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      --navy: #082f49;
+      --blue: #075985;
+      --cyan: #0891b2;
+      --teal: #0f766e;
+      --mint: #ccfbf1;
+      --sky: #e0f2fe;
+      --ink: #102a43;
+      --muted: #526777;
+      --line: #d9e7ec;
+      --surface: #f8fafc;
+      --white: #fff;
+      --shadow: 0 4px 20px rgba(8, 47, 73, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #dceff4 0%, #eef7f8 48%, #dcecf3 100%);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      padding: 20px 0;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 20px;
+      background: var(--white);
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.08);
+      position: relative;
+      page-break-after: always;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .paper-header {
+      height: 22mm;
+      padding: 0 15mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      border-top: 3mm solid var(--navy);
+    }
+
+    .header-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-left .mini {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .header-left strong {
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .simulcast-logo-css {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .simulcast-logo-css .logo-bold {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--navy);
+      letter-spacing: 0.05em;
+    }
+
+    .simulcast-logo-css .logo-light {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .paper-footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 14mm;
+      padding: 0 15mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+      font-size: 9px;
+      color: var(--muted);
+    }
+
+    .paper-footer span:last-child {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    main {
+      flex: 1;
+      padding: 10mm 15mm 16mm;
+      position: relative;
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 2mm;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 14px;
+      color: var(--blue);
+      font-weight: 700;
+      margin-top: 4mm;
+      margin-bottom: 2mm;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      background: var(--sky);
+      color: var(--blue);
+      font-size: 8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1mm 2.5mm;
+      border-radius: 4px;
+      margin-bottom: 3mm;
+      border: 1px solid #bae6fd;
+    }
+
+    .accent {
+      width: 25mm;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--teal));
+      margin-bottom: 6mm;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 11px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 0 0 4mm;
+    }
+
+    ul {
+      font-size: 11px;
+      line-height: 1.6;
+      margin: 0 0 5mm 5mm;
+      padding-left: 0;
+      color: var(--ink);
+    }
+
+    li {
+      margin-bottom: 2mm;
+    }
+
+    li::marker {
+      color: var(--teal);
+    }
+
+    .info-row {
+      display: flex;
+      gap: 6mm;
+      padding: 4mm 0;
+      border-bottom: 1px solid var(--line);
+      align-items: flex-start;
+    }
+
+    .info-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .info-row-title {
+      flex: 0 0 45mm;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .info-row-desc {
+      flex: 1;
+      font-size: 11px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .clean-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm 8mm;
+      margin: 4mm 0;
+    }
+
+    .grid-item {
+      border-left: 3px solid var(--cyan);
+      padding-left: 4mm;
+      margin-bottom: 2mm;
+    }
+
+    .grid-item h3 {
+      margin: 0 0 1.5mm;
+      font-size: 12.5px;
+      color: var(--navy);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .grid-item p {
+      margin: 0;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 5mm 0;
+      font-size: 10px;
+    }
+
+    th {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 2.5mm 3mm;
+      border: 1px solid var(--navy);
+    }
+
+    td {
+      padding: 2.5mm 3mm;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--surface);
+    }
+
+    .table-highlight {
+      font-weight: 700;
+      color: var(--navy);
+      background: #ecfeff !important;
+    }
+
+    .highlight-panel {
+      background: linear-gradient(135deg, #f0fdfa, #ecfeff);
+      border-left: 4px solid var(--teal);
+      border-right: 1px solid #cffafe;
+      border-top: 1px solid #cffafe;
+      border-bottom: 1px solid #cffafe;
+      border-radius: 6px;
+      padding: 4mm 5mm;
+      margin: 5mm 0;
+    }
+
+    .highlight-panel p {
+      margin: 0;
+      font-size: 11px;
+      line-height: 1.55;
+      color: var(--navy);
+    }
+
+    .cover-page {
+      background: radial-gradient(circle at 95% 5%, rgba(8, 145, 178, 0.15), transparent 40%), var(--white);
+      border-left: 8mm solid var(--navy);
+    }
+
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      padding: 20mm 15mm 20mm 10mm;
+    }
+
+    .cover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-badge {
+      background: var(--cyan);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      padding: 1.5mm 4mm;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .cover-title-group {
+      margin-top: 20mm;
+    }
+
+    .cover-title-group h1 {
+      font-size: 44px;
+      line-height: 1.05;
+      color: var(--navy);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 3mm;
+    }
+
+    .cover-title-group h2 {
+      font-size: 20px;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 6mm;
+      letter-spacing: -0.01em;
+    }
+
+    .cover-divider {
+      width: 30mm;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--teal));
+      margin-bottom: 6mm;
+    }
+
+    .cover-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 140mm;
+    }
+
+    .cover-meta {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 8mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meta-item span {
+      font-size: 8px;
+      color: var(--teal);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1mm;
+    }
+
+    .meta-item strong {
+      font-size: 12px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .cover-footer {
+      border-top: 1px solid var(--line);
+      padding-top: 6mm;
+      font-size: 9px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10mm;
+    }
+
+    .color-palette {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin: 5mm 0;
+    }
+
+    .swatch-item {
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 3mm;
+      border-radius: 8px;
+    }
+
+    .swatch-color {
+      width: 15mm;
+      height: 15mm;
+      border-radius: 6px;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px rgba(8, 47, 73, 0.1);
+    }
+
+    .swatch-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-details h4 {
+      margin: 0;
+      font-size: 12px;
+      color: var(--navy);
+    }
+
+    .swatch-details code {
+      font-family: monospace;
+      font-size: 10px;
+      color: var(--teal);
+      margin: 1px 0;
+    }
+
+    .swatch-details span {
+      font-size: 9.5px;
+      color: var(--muted);
+    }
+
+    .closing-page {
+      background: radial-gradient(circle at 5% 95%, rgba(15, 118, 110, 0.1), transparent 40%), var(--navy);
+      color: var(--white);
+    }
+
+    .closing-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      padding: 20mm 15mm;
+    }
+
+    .closing-panel {
+      margin-top: 15mm;
+    }
+
+    .closing-panel h1 {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 4mm;
+    }
+
+    .closing-panel p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--sky);
+      max-width: 140mm;
+    }
+
+    .closing-cta {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6mm;
+      border-radius: 12px;
+      margin: 10mm 0;
+    }
+
+    .closing-cta h3 {
+      color: var(--cyan);
+      font-size: 16px;
+      margin-bottom: 2mm;
+    }
+
+    .closing-cta p {
+      color: var(--white);
+      font-size: 11px;
+      margin: 0;
+    }
+
+    .closing-contacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 8mm;
+    }
+
+    .closing-column h3 {
+      color: var(--cyan);
+      font-size: 13px;
+      margin-bottom: 3mm;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-row-new {
+      display: flex;
+      margin-bottom: 2.5mm;
+      font-size: 11px;
+    }
+
+    .contact-row-new b {
+      flex: 0 0 20mm;
+      color: var(--sky);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-row-new span {
+      flex: 1;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .contact-row-new a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .page:last-child {
+        page-break-after: auto;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    @media (max-width: 850px) {
+      body {
+        padding: 0;
+        background: #white;
+      }
+      .page {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        margin: 0;
+        box-shadow: none;
+      }
+      .clean-grid, .color-palette, .closing-contacts {
+        grid-template-columns: 1fr;
+      }
+      .cover-container {
+        padding: 10mm;
+      }
+      .cover-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER PAGE -->
+  <section class="page cover-page">
+    <div class="cover-container">
+      <div class="cover-header">
+        <div class="simulcast-logo-css">
+          <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+        </div>
+        <div class="cover-badge">Business Proposal</div>
+      </div>
+      
+      <div class="cover-title-group">
+        <h1>MEDIKO BAZAR</h1>
+        <h2>Healthcare Commerce Web &amp; Admin Ecosystem</h2>
+        <div class="cover-divider"></div>
+        <p class="cover-desc">A comprehensive digital platform connecting hospitals, clinics, laboratories, vendors, and service engineers across Nepal. Built for transparency, streamlined procurement, rental management, and end-to-end operational controls.</p>
+      </div>
+
+      <div class="cover-meta">
+        <div class="meta-item">
+          <span>Prepared For</span>
+          <strong>Mediko Bazar Pvt. Ltd.</strong>
+        </div>
+        <div class="meta-item">
+          <span>Prepared By</span>
+          <strong>Simulcast Technologies Pvt. Ltd.</strong>
+        </div>
+        <div class="meta-item">
+          <span>Date of Issuance</span>
+          <strong>July 2026</strong>
+        </div>
+        <div class="meta-item">
+          <span>Document Version</span>
+          <strong>v2.0 (Web + Admin Scope)</strong>
+        </div>
+      </div>
+
+      <div class="cover-footer">
+        <span>New Baneshwar-31, Kathmandu, Nepal</span>
+        <span>info@simulcast.com.np • +977 9851188274 / 9814823222</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 2: PROPOSAL INDEX -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Proposal Index</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 02</div>
+      <h2>Proposal Index</h2>
+      <div class="accent"></div>
+      <p>This proposal outlines the technical scope, functional workflows, stack dependencies, delivery timelines, and financial metrics for the Mediko Bazar platform.</p>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 15mm;">No.</th>
+            <th style="width: 60mm;">Section</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>Cover &amp; Executive Overview</td><td>Project identity, proposal summary, objectives, and business value.</td></tr>
+          <tr><td>02</td><td>Users, Brand &amp; Website</td><td>User roles, visual direction, and public marketplace scope.</td></tr>
+          <tr><td>03</td><td>Products &amp; Commerce</td><td>Catalog management, B2B/B2C sales, and multi-vendor workflows.</td></tr>
+          <tr><td>04</td><td>Used Equipment &amp; Rentals</td><td>Verification, deposits, penalties, and rental lifecycle controls.</td></tr>
+          <tr><td>05</td><td>Engineering &amp; Communication</td><td>Service bookings, engineer assignments, chat, and support workflows.</td></tr>
+          <tr><td>06</td><td>Admin &amp; Role-based Portals</td><td>Administrative controls, KYC, approvals, and portal access.</td></tr>
+          <tr><td>07</td><td>Quotation, Invoice &amp; Trading</td><td>Enquiries, quotations, invoices, landing costs, and trading stages.</td></tr>
+          <tr><td>08</td><td>Automation, Warranty &amp; Reports</td><td>Notifications, claims, certificates, analytics, and permissions.</td></tr>
+          <tr><td>09</td><td>Technology &amp; Timeline</td><td>Recommended stack and phase-wise implementation schedule.</td></tr>
+          <tr><td>10</td><td>Financials &amp; Payments</td><td>Project pricing, discounts, totals, and payment milestones.</td></tr>
+          <tr><td>11</td><td>Support, Terms &amp; Assumptions</td><td>Maintenance packages, warranty limits, and project exclusions.</td></tr>
+          <tr><td>12</td><td>Company &amp; Kickoff</td><td>Company information, contacts, handover, and next steps.</td></tr>
+        </tbody>
+      </table>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 2</span>
+    </div>
+  </section>
+
+  <!-- PAGE 3: EXECUTIVE SUMMARY -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Executive Summary</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 03</div>
+      <h2>Executive Summary</h2>
+      <div class="accent"></div>
+      <p>The healthcare supply chain in Nepal has historically faced significant challenges, including fragmented equipment distribution, lack of transparent pricing, absence of verified second-hand trade, and uncoordinated repair services. <strong>Mediko Bazar</strong> is designed to address these critical inefficiencies by establishing a centralized, unified healthcare commerce platform specifically tailored for the Nepalese context.</p>
+      <p>The platform will act as an integrated digital bridge connecting clinical buyers (hospitals, clinics, diagnostic centers) directly with local vendors and international manufacturers. By incorporating rigorous administrative verifications, verified used-equipment criteria, structured rental custody rules, and directly mapped biomedical engineering support, Mediko Bazar delivers a comprehensive lifecycle solution for medical inventory management.</p>
+      <p>Our core objective is to replace manual, non-auditable communication channels with automated workflows. From initial import estimation and landing cost calculation to final quotation acceptance, tax invoice issuance, rental penalty processing, and warranty claim validation, the entire lifecycle is controlled under one secure, administrative console. This ensures complete transparency, compliance, and efficiency across all healthcare procurement and maintenance operations.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Business Model</h3>
+          <p>B2B procurement, B2C purchasing, multi-vendor selling, international seller support, rental service, engineering service and used-equipment trading.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Core Value</h3>
+          <p>A single platform to buy, rent, service, trade, import and manage medical equipment and spare parts with controlled approvals and support workflows.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Operational Control</h3>
+          <p>Admin panel for product approvals, certificates, warranty, quotations, invoices, rental penalties, support tickets, chat and reporting.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Nepal Focus</h3>
+          <p>Designed for Nepal delivery, Nepal landing cost calculation, vendor support and local healthcare procurement workflows.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 3</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4: BUSINESS SCOPE & OBJECTIVES -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Business Scope &amp; Objectives</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 04</div>
+      <h2>Business Scope &amp; Objectives</h2>
+      <div class="accent"></div>
+      <p>The proposed platform covers the complete equipment lifecycle from product discovery to purchase, rental, engineering service, warranty claim and repeat support. The solution is strictly structured as a web application and admin ecosystem.</p>
+      
+      <div class="info-row">
+        <div class="info-row-title">E-Commerce Gateway</div>
+        <div class="info-row-desc">Sell medical equipment, spare parts, consumables, home-use equipment and accessories online online with role-based pricing.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">B2B Sourcing</div>
+        <div class="info-row-desc">Support B2B hospital/clinic procurement with RFQ, bulk enquiries, quote comparison and institutional pricing.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">B2C Retail &amp; Rentals</div>
+        <div class="info-row-desc">Support B2C direct purchase, rental request, home-care equipment and customer support.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Multi-vendor Logistics</div>
+        <div class="info-row-desc">Enable local vendors and international sellers to list products through approval-controlled workflows.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Import Costings</div>
+        <div class="info-row-desc">Allow vendor/customer enquiries for import calculation and landing cost to Nepal.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Compliance Registry</div>
+        <div class="info-row-desc">Digitize warranty, certificates, authorization documents, used-equipment validation and claim management.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Integrated Services</div>
+        <div class="info-row-desc">Provide internal messaging between customers, vendors, engineers, support team and admin. Create a scalable system for trading, reporting, and automation.</div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 5: USER TYPES & ROLE COVERAGE -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>User Types &amp; Role Coverage</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 05</div>
+      <h2>User Types &amp; Role Coverage</h2>
+      <div class="accent"></div>
+      <p>The platform supports multiple, distinct user roles, each accessing customized portal features secured by role-based authentication permissions.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Customer / Buyer</h3>
+          <p>Individuals, doctors, clinics, hospitals, laboratories, institutions, NGOs and home-care users can register, browse, buy, rent, ask for price, request service, track orders and download invoices.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Vendor</h3>
+          <p>Local vendors can complete KYC, manage dashboard, list products/spare parts/used/rental items, upload warranty/certificates, manage enquiries, quotes, settlement and import enquiries.</p>
+        </div>
+        <div class="grid-item">
+          <h3>International Seller</h3>
+          <p>Manufacturers, exporters and distributors can list products in USD or foreign currency, set MOQ, export price, warranty terms, catalogue and authorization documents.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Engineer / Service Provider</h3>
+          <p>Biomedical engineers can manage assigned jobs, customer chat, service checklist, inspection, used product verification, rental condition check and service reports.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Admin</h3>
+          <p>Full system control: users, vendors, sellers, engineers, approvals, quote, invoice, landing cost, tax/customs, commission, rental penalty, support and reports.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Support Team</h3>
+          <p>Manage enquiries, customer/vendor replies, quote requests, support tickets, engineer assignment, live chat, group chat and email responses.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 5</span>
+    </div>
+  </section>
+
+  <!-- PAGE 6: BRAND & UI THEME DIRECTION -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Brand &amp; UI Theme Direction</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 06</div>
+      <h2>Brand &amp; UI Theme Direction</h2>
+      <div class="accent"></div>
+      <p>The platform UI follows a clean medical-tech identity with high contrast, strong trust signals and readable enterprise-grade UI patterns.</p>
+      
+      <div class="color-palette">
+        <div class="swatch-item">
+          <div class="swatch-color" style="background: #0D47A1;"></div>
+          <div class="swatch-details">
+            <h4>Primary Trust Blue</h4>
+            <code>#0D47A1</code>
+            <span>Used for main components, headers, and trust signals.</span>
+          </div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color" style="background: #009688;"></div>
+          <div class="swatch-details">
+            <h4>Healthcare Teal</h4>
+            <code>#009688</code>
+            <span>Used for status elements, badges, and validation items.</span>
+          </div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color" style="background: #4FB6C6;"></div>
+          <div class="swatch-details">
+            <h4>Support Cyan</h4>
+            <code>#4FB6C6</code>
+            <span>Used for secondary actions, interactive items, and links.</span>
+          </div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color" style="background: #263238;"></div>
+          <div class="swatch-details">
+            <h4>Body Copy Slate</h4>
+            <code>#263238</code>
+            <span>Used for reading texts, descriptions, and metadata.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Typography</h3>
+          <p>Poppins/Outfit bold headings combined with Inter/Roboto body copy for high visual hierarchy and screen readability.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Layout</h3>
+          <p>Clean alignment, structured left-borders, minimal dividers, and high white-space usage to ensure corporate document aesthetics.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Trust UI</h3>
+          <p>Verified indicators, clearance badges, biomedical inspection flags, and warranty expiry counters.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Marketplace UI</h3>
+          <p>Simple search listings, filter checkboxes, clean comparison tables, and straightforward quote request actions.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 6</span>
+    </div>
+  </section>
+
+  <!-- PAGE 7: WEBSITE PLATFORM SCOPE -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Website Platform Scope</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 07</div>
+      <h2>Website Platform Scope</h2>
+      <div class="accent"></div>
+      <p>The public web platform will act as the main marketplace, service gateway and content-driven business presence for Mediko Bazar.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Homepage</h3>
+          <p>Hero banner, category highlights, Nepal delivery message, featured equipment, rent/service/trade CTA, trust badges and partner/service blocks.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Category &amp; Listing</h3>
+          <p>Category pages, filters, search, sorting, price or ask-for-price display, product cards, vendor badges, rental/used/new labels and pagination.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Product Details</h3>
+          <p>Images, videos, brochure, manual, technical specification, applications, warranty, certificate, seller, delivery, add-on engineering service and quote CTA.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Rental / Used / Spare Parts</h3>
+          <p>Dedicated pages for rental products, used product details, spare parts compatibility, serial/model details and service add-ons.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Content Pages</h3>
+          <p>About, contact, vendor registration, seller registration, rental policy, service policy, warranty/claim policy and support pages.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Responsive UI</h3>
+          <p>Optimized for desktop, tablet and mobile browsers with SEO-friendly structure and fast page load times.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 7</span>
+    </div>
+  </section>
+
+  <!-- PAGE 8: PRODUCT & MARKETPLACE MANAGEMENT -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Product &amp; Catalog Management</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 08</div>
+      <h2>Product &amp; Catalog Management</h2>
+      <div class="accent"></div>
+      <p>A controlled catalogue will support equipment sales, spare parts, consumables, home-care products, rental inventory, used equipment and international supply listings without mixing their pricing or compliance rules.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Product &amp; Supply Types</h3>
+          <p>New/used equipment, model-compatible spare parts, consumables, accessories, home-use devices, rental units, imported items and recurring institutional supply products.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Flexible Price Display</h3>
+          <p>Fixed or discounted price, “Ask for Price,” RFQ, bulk/institutional price, USD seller price and daily, weekly or monthly rental rates can be configured per listing.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Complete Product Detail</h3>
+          <p>Name, brand, model, condition, specifications, origin, stock, delivery, warranty, seller, images/video, brochure/manual, certificates, rental/deposit and return rules.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Add-on Services</h3>
+          <p>Admin may attach optional or mandatory installation, calibration, training, AMC, preventive maintenance or engineer-visit services with separate pricing, tax and availability.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Buyer Actions</h3>
+          <p>Buy, request bulk supply, ask for price, request quote, rent, add engineering service, compare, save, send enquiry or start support chat from the relevant listing.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Approval &amp; Trust</h3>
+          <p>Draft → review → correction → approval. Admin validates vendor, price, content, warranty, certificate and authorization before publishing verified or inspected badges.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 8</span>
+    </div>
+  </section>
+
+  <!-- PAGE 9: B2B, B2C & MULTI-VENDOR COMMERCE -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>B2B, B2C &amp; Multi-vendor Commerce</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 09</div>
+      <h2>B2B, B2C &amp; Multi-vendor Commerce</h2>
+      <div class="accent"></div>
+      <p>One shared marketplace will serve institutional procurement and individual healthcare needs while applying role-specific pricing, approvals, documents and checkout workflows.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>B2B Procurement</h3>
+          <p>Hospitals, clinics, laboratories, NGOs and institutions can create RFQs, upload purchase orders, compare quotations, request bulk or contract pricing and receive compliant tax invoices.</p>
+        </div>
+        <div class="grid-item">
+          <h3>B2C &amp; Home Healthcare</h3>
+          <p>Individuals can buy home-use devices and consumables, request rental or engineer service, pay online, track fulfilment, download invoices and submit warranty claims.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Supply Service</h3>
+          <p>Recurring or bulk medical supply requirements can become managed enquiries with quantity, delivery schedule, destination, preferred brands and repeat-order records.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Multi-vendor Marketplace</h3>
+          <p>Approved vendors manage catalogue, inventory, orders, quotes, rental units, warranties and settlements; admin controls commission, visibility, disputes and performance.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Vendor Buys from Seller</h3>
+          <p>A verified vendor may enquire about or procure an international seller’s USD product, request Nepal landing cost and convert the approved quotation into a trading order.</p>
+        </div>
+        <div class="grid-item">
+          <h3>International Seller</h3>
+          <p>Verified manufacturers/exporters publish MOQ, export price, lead time, warranty, certificates and catalogues; enquiries are routed by email, chat and admin workflow.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 9</span>
+    </div>
+  </section>
+
+  <!-- PAGE 10: USED EQUIPMENT VERIFICATION -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Used Equipment Verification</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 10</div>
+      <h2>Used Equipment Verification</h2>
+      <div class="accent"></div>
+      <p>Second-hand equipment will remain unpublished until identity, ownership, condition and supporting documents have passed the configured validation process.</p>
+      
+      <div class="info-row">
+        <div class="info-row-title">Vendor Declaration</div>
+        <div class="info-row-desc">Upload photos/video, specify brand/model, serial number, purchase year, usage metrics, operating condition, service history, and reason for sale.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Documentary Evidence</div>
+        <div class="info-row-desc">Provide proof of ownership, original purchase invoice (where available), calibration/quality certificate, and warranty history.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Verification Audits</div>
+        <div class="info-row-desc">Admin may request a biomedical engineer inspection, physical/video verification, serial number lookup, and functional testing.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Warranty Definition</div>
+        <div class="info-row-desc">Clear labeling indicating if the product carries a manufacturer warranty, vendor warranty, Mediko Bazar verified warranty, or no warranty.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Approval Outcome</div>
+        <div class="info-row-desc">Status transition (Draft → Pending Review → Correction Required → Approved / Rejected). Only verified listings get public badges.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Dispute Claims</div>
+        <div class="info-row-desc">Condition mismatch, description differences, or defects route to a formal claims flow for repair, replacement, or refund settlement.</div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 10</span>
+    </div>
+  </section>
+
+  <!-- PAGE 11: RENTAL, DEPOSIT & PENALTY MANAGEMENT -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Rental, Deposit &amp; Penalty</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 11</div>
+      <h2>Rental, Deposit &amp; Penalty Management</h2>
+      <div class="accent"></div>
+      <p>The rental module controls availability, agreements, money held as security, equipment custody and final settlement from reservation through inspected return.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Rental Product Setup</h3>
+          <p>Daily/weekly/monthly rates, refundable deposit, duration limits, availability calendar, delivery/pickup rules, condition checklists, and cancellation criteria.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Booking &amp; Deposit</h3>
+          <p>Calculates rent and deposit separately. Bookings require admin/vendor approval, agreement signatures, and verification before dispatch. Deposits are held in escrow.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Lifecycle &amp; Inspection</h3>
+          <p>Workflow tracking: Requested → Approved → Deposit Pending → Dispatched → Active → Return Requested → Return Inspection → Completed.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Automatic Penalties</h3>
+          <p>Configurable penalty values for late return, damages, missing accessories, transport delays, cleaning costs, and lease violations.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Return Settlement</h3>
+          <p>Engineers log conditions upon return. Penalties are deducted directly from the escrow deposit; remainder is refunded with adjustment invoices.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Rental Communication</h3>
+          <p>Automated alerts, extension options, support tickets, and specialized transaction chats keep all parties aligned on timelines.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 11</span>
+    </div>
+  </section>
+
+  <!-- PAGE 12: ENGINEERING & STANDALONE SERVICE MODULE -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Engineering &amp; Support Service</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 12</div>
+      <h2>Engineering &amp; Standalone Service Module</h2>
+      <div class="accent"></div>
+      <p>Customers may add technical service to a product or book engineer-only service for equipment already owned, keeping commerce and after-sales operations connected but independently manageable.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Service Catalogue</h3>
+          <p>Installation, repair, calibration, demonstration, preventive maintenance, AMC, inspection, spare-part replacement, rental checks and used-equipment verification.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Product Add-on</h3>
+          <p>Product pages show eligible services with description, price, tax, service area, SLA and free/paid or mandatory/optional status configured from admin.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Engineer-only Request</h3>
+          <p>A customer can submit equipment type, brand/model, serial, fault, location, preferred date and media without purchasing a product from the marketplace.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Assignment Rules</h3>
+          <p>Admin/support assigns a specific, nearest, vendor, Mediko Bazar or specialist engineer based on skill, area, workload and availability.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Service Execution</h3>
+          <p>Diagnosis, quotation approval, visit scheduling, checklist, parts used, photos, signed report, customer acceptance and service warranty are recorded against one ticket.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Status &amp; Control</h3>
+          <p>New → reviewed → engineer assigned → scheduled → in progress → awaiting parts/approval → completed → accepted/closed, with escalation and reassignment.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 12</span>
+    </div>
+  </section>
+
+  <!-- PAGE 13: INTERNAL CHAT & ENGINEER COMMUNICATION -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Internal Chat &amp; Communication</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 13</div>
+      <h2>Internal Chat &amp; Engineer Communication</h2>
+      <div class="accent"></div>
+      <p>Conversation is attached to the business record—not left as an isolated message—so decisions, documents and handovers remain traceable.</p>
+      
+      <div class="highlight-panel">
+        <p><strong>Engineer communication flow:</strong> Service request approved → Engineer assigned → Private contextual room created → Customer &amp; engineer communicate → Service checklist, photos, and customer signature logged → Linked directly to the service ticket.</p>
+      </div>
+
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Conversation Types</h3>
+          <p>Customer–engineer/support, vendor–admin/support/engineer, seller–admin, internal departments and controlled vendor–seller enquiry chat.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Contextual Groups</h3>
+          <p>Multiple participants can join role-controlled rooms linked to an order, rental, service ticket, import enquiry, quotation or support case.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Messaging Features</h3>
+          <p>Real-time messages, typing/read status, search, notifications, reply, timestamps, history, internal notes, participant control and admin monitoring where permitted.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Secure File Exchange</h3>
+          <p>Images, video, voice notes, PDFs, agreements, certificates, quotations, invoices, warranty evidence and signed service reports with access control.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 13</span>
+    </div>
+  </section>
+
+  <!-- PAGE 14: ADMIN PANEL SCOPE -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Admin Panel Scope</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 14</div>
+      <h2>Admin Panel Scope</h2>
+      <div class="accent"></div>
+      <p>The admin panel is the control center for marketplace operation, approval, pricing, quote, service and reporting workflows.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Core Admin</h3>
+          <p>Dashboard, user management, customer management, vendor management, seller management, engineer management and role permissions.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Listing Control</h3>
+          <p>Product approval, rental approval, used product approval, certificate verification, authorization verification and warranty verification.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Business Control</h3>
+          <p>Enquiry management, quote management, import cost calculation, landing cost calculation, commission setup, tax/customs setup and invoice management.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Service Control</h3>
+          <p>Rental penalty setup, add-on service setup, engineer assignment, warranty claim management, support ticket management and internal chat management.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Reporting</h3>
+          <p>Sales, rental, service, vendor, seller, customer, product, spare parts, used product, claim, trading, commission, invoice, tax and engineer performance reports.</p>
+        </div>
+        <div class="grid-item">
+          <h3>System Settings</h3>
+          <p>CMS pages, email templates, notifications, payment readiness, security logs, backups and configuration.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 14</span>
+    </div>
+  </section>
+
+  <!-- PAGE 15: REGISTRATION & ROLE-BASED PORTALS -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Registration &amp; Portals</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 15</div>
+      <h2>Registration &amp; Role-based Portals</h2>
+      <div class="accent"></div>
+      <p>Each portal exposes only the records and actions needed by that role, while admin approval gates commercial access.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Vendor Portal</h3>
+          <p>KYC submission (PAN/VAT, company docs). Catalog management (prices, stock, rental terms, spare parts), PO handling, sales receipts, and commission breakdowns.</p>
+        </div>
+        <div class="grid-item">
+          <h3>International Seller</h3>
+          <p>Manufacturer or exporter profiles. Currency rates configurations (publish in USD), export MOQ, lead times, warranty terms, certifications uploads, and RFQ response panels.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Customer Portal</h3>
+          <p>Individual or medical facility profile. Purchase history, rental ledger (active agreements, deposits), service tickets, saved quotations, invoices, warranty registration, and chat rooms.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Engineer Portal</h3>
+          <p>Specialization checklist, location boundaries, assigned jobs view. Interactive task checklists (repair logs, calibration settings, signature captures), and activity status.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Approval States</h3>
+          <p>Strict workflow validation states: Registered → Pending Review → Correction Required → Approved / Suspended / Blacklisted. Non-approved users are restricted from transacting.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Cross-platform Sourcing</h3>
+          <p>Local vendors can query international sellers for component items directly through the web marketplace, moderated under admin commission guidelines.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 15</span>
+    </div>
+  </section>
+
+  <!-- PAGE 16: ENQUIRY-TO-QUOTATION MANAGEMENT -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Enquiry-to-Quotation</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 16</div>
+      <h2>Enquiry-to-Quotation Management</h2>
+      <div class="accent"></div>
+      <p>Every “Ask for Price” and sourcing request becomes an accountable workflow with ownership, response history, documents and conversion tracking.</p>
+      
+      <div class="info-row">
+        <div class="info-row-title">Step 01: Submission</div>
+        <div class="info-row-desc">Buyer submits an enquiry for new/used equipment, spare parts, rentals, servicing, or customized landing cost estimates.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Step 02: Registration</div>
+        <div class="info-row-desc">System records request data, attaches documents, and issues a unique Enquiry ID, notifying admin/vendors.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Step 03: Assignment</div>
+        <div class="info-row-desc">System or support manager assigns ownership of the ticket to appropriate staff or registered vendors.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Step 04: Sourcing PO</div>
+        <div class="info-row-desc">International sellers supply base USD costs, lead times, and warranty boundaries when necessary.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Step 05: Calculation</div>
+        <div class="info-row-desc">Admin computes local duties, margins, and taxes to convert the import requests into localized NPR quotations.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Step 06: Issuance</div>
+        <div class="info-row-desc">Quotation is dispatched. Buyer acceptance triggers automated orders, tax invoices, and shipping cycles.</div>
+      </div>
+
+      <div class="highlight-panel" style="margin-top: 4mm;">
+        <p><strong>Enquiry Status Cycle:</strong> New → Assigned → Under Calculation → Seller Response Pending → Quotation Sent → Accepted / Converted / Archived.</p>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 16</span>
+    </div>
+  </section>
+
+  <!-- PAGE 17: QUOTATION & INVOICE MANAGEMENT -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Quotation &amp; Invoice</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 17</div>
+      <h2>Quotation &amp; Invoice Management</h2>
+      <div class="accent"></div>
+      <p>The platform generates and tracks legal quotations and tax invoices for different business activities under centralized admin monitoring.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Quotation Subtypes</h3>
+          <p>Product sales quote, spare parts replacement quote, rental lease quote, service/repair quote, import calculation quote, and annual maintenance contract (AMC) quote.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Quotation Elements</h3>
+          <p>Base price, weight-calculated freight charges, customs duty, VAT adjustments, platform commissions, warranty coverage periods, and validation expiry dates.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Quotation Workflows</h3>
+          <p>PDF exports, email dispatches, draft approvals, custom discount overlays, and direct one-click conversion to invoice or order states.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Invoice Subtypes</h3>
+          <p>Commercial sales tax invoice, monthly rental fee invoice, service repair invoice, penalty charge invoice, and landing cost logistics invoice.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Invoice Adjustments</h3>
+          <p>Track payments (partial, paid, deposit escrow adjustments, penalty deductions). Integrated credit/debit note generation for return requests.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Audit Log</h3>
+          <p>All invoice and quotation activities maintain log records (creator, approval timestamp, modifications) linked directly to the parent enquiry.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 17</span>
+    </div>
+  </section>
+
+  <!-- PAGE 18: IMPORT CALCULATION & NEPAL LANDING COST -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Nepal Landing Cost</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 18</div>
+      <h2>Import Calculation &amp; Nepal Landing Cost</h2>
+      <div class="accent"></div>
+      <p>Approved international sellers may display an export price in USD or another supported currency. That value is a sourcing reference; admin issues the final Nepal price only after cost and compliance review.</p>
+      
+      <div class="highlight-panel">
+        <p><strong>Landing Cost Formula:</strong> Product Cost (USD/Foreign Currency converted to NPR) + Freight + Insurance + Customs Duty + VAT + Clearance Costs + Bank/Forex Commission + Local Transport + Installation Charges + Mediko Bazar Commission + Margin + Contingency Reserves = Estimated Landing Cost.</p>
+      </div>
+
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Enquiry Inputs</h3>
+          <p>Product dimension, total weight/volume, shipping mode (Air, Sea, Land), HS code, international origin, destination, installation needs.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Admin Rules Engine</h3>
+          <p>Set up global parameters for freight per kg, customs rates based on HS codes, bank LC commissions, Ncell/local transportation rates, and contingency margins.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Price Shields</h3>
+          <p>Keeps internal margins and seller raw prices hidden from buyers. Customer sees only the final, approved NPR localized quotation.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Commercial Output</h3>
+          <p>Detailed breakdown for admins, summary breakdown for customers, exportable PDF quote, and direct transition to trading PO records.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 18</span>
+    </div>
+  </section>
+
+  <!-- PAGE 19: COMPLETE TRADING MANAGEMENT -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Complete Trading Management</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 19</div>
+      <h2>Complete Trading Management</h2>
+      <div class="accent"></div>
+      <p>The trading workspace joins seller sourcing, buyer approval, import operations, finance and delivery into one auditable record.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25mm;">Stage</th>
+            <th style="width: 75mm;">Operational Record</th>
+            <th>Expected Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Sourcing</strong></td>
+            <td>USD catalogue price, minimum order quantity (MOQ), warranty specifications, certificates.</td>
+            <td>Verified Seller Offer</td>
+          </tr>
+          <tr>
+            <td><strong>2. Enquiry</strong></td>
+            <td>Client quantity, shipping destination, attachments, system notifications.</td>
+            <td>Assigned Enquiry</td>
+          </tr>
+          <tr>
+            <td><strong>3. Costing</strong></td>
+            <td>Duties, freight, clearing agency fees, transport fees, margins, commissions.</td>
+            <td>Approved Landing Cost</td>
+          </tr>
+          <tr>
+            <td><strong>4. Confirmation</strong></td>
+            <td>Quotation acceptance, PO files, payment term agreement.</td>
+            <td>Active Trading Order</td>
+          </tr>
+          <tr>
+            <td><strong>5. Sourcing PO</strong></td>
+            <td>Seller PO, proforma invoice, bank LC/advance payment records.</td>
+            <td>Cargo Ready for Dispatch</td>
+          </tr>
+          <tr>
+            <td><strong>6. Importation</strong></td>
+            <td>Freight tracking milestones, customs clearances, duty payments, customs receipt.</td>
+            <td>Shipment Cleared in Nepal</td>
+          </tr>
+          <tr>
+            <td><strong>7. Fulfilment</strong></td>
+            <td>Warehouse arrival, local transit, installation, testing, buyer sign-off.</td>
+            <td>Delivered &amp; Installed</td>
+          </tr>
+          <tr>
+            <td><strong>8. Settlement</strong></td>
+            <td>Final commercial invoice, vendor payouts, commissions ledger, profitability.</td>
+            <td>Closed Trade File</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-panel">
+        <p><strong>Note:</strong> Admin retains visibility of exact margin and vendor costs. Buyer and Seller communicate through filtered quotation values. All actions, files, and chat logs remain attached to the parent order.</p>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 19</span>
+    </div>
+  </section>
+
+  <!-- PAGE 20: AUTOMATION, SUPPORT & NOTIFICATIONS -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Automation &amp; Support</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 20</div>
+      <h2>Automation, Support &amp; Notifications</h2>
+      <div class="accent"></div>
+      <p>The communication layer confirms every important submission and response so customers, vendors, sellers, engineers and staff know who must act next.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Enquiry Automation</h3>
+          <p>Instant email alerts to support admins, sellers, and buyers on enquiry registration. Triggers alerts on price edits and quote issuance.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Workflow Emails</h3>
+          <p>Automated trigger emails: KYC status, product listing approval, quote expiry warnings, rental penalty invoices, and engineer assignment logs.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Support Ticket System</h3>
+          <p>Core support gateway covering order delays, device issues, calibration requests, and billing disputes. Features ticket prioritization.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Delivery Channels</h3>
+          <p>Web portal dashboard and SMTP email are standard. Architecture supports SMS gateway and Firebase push notification integrations.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Ticket Lifecycle</h3>
+          <p>Detailed tracking: Open → Assigned → Under Investigation → Awaiting Vendor/Buyer Response → Resolved → Closed.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Notification Safety</h3>
+          <p>System audit registers prevent missed/delayed alerts, duplicate emails, and handle retry queues for network failures.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 20</span>
+    </div>
+  </section>
+
+  <!-- PAGE 21: WARRANTY, CLAIMS & CERTIFICATE REVIEW -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Warranty &amp; Compliance</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 21</div>
+      <h2>Warranty, Claims &amp; Certificate Review</h2>
+      <div class="accent"></div>
+      <p>Compliance and after-sales evidence are managed as versioned records with reviewer, expiry and public visibility—not as unverified attachments.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Certifications Ledger</h3>
+          <p>Manufacturer certificates, exclusive distribution letters, quality test logs (ISO/CE), calibration slips, and biomedical check sheets.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Verification Pipeline</h3>
+          <p>Upload → Pending Review → Authority Check → Additional Info Required → Approved / Rejected. Listings block if certificates expire.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Warranty Management</h3>
+          <p>Sets up exact warranty parameters (Start/End dates, terms, inclusions, coverage limits). Auto-reminders send alerts 30 days prior to expiry.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Claims Intake</h3>
+          <p>Buyer submits claim citing Invoice ID, serial number, defect details, and uploads photos/videos. A unique claim number is created.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Claim Resolution</h3>
+          <p>Admin evaluates warranty eligibility, coordinates with vendor/seller, and dispatches engineers for validation before issuing refunds or repairs.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Audit Registry</h3>
+          <p>Maintains an internal log of every claim review step, auditor notes, engineering inspection files, and customer resolution signatures.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 21</span>
+    </div>
+  </section>
+
+  <!-- PAGE 22: REPORTING, SECURITY & PERMISSIONS -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Security &amp; Permissions</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 22</div>
+      <h2>Reporting, Security &amp; Permissions</h2>
+      <div class="accent"></div>
+      <p>Centralized logging and role-based permissions ensure system security while providing analytics for management review.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Analytical Reports</h3>
+          <p>Gross sales, rental returns, engineering tickets history, seller payouts, tax invoices, landing cost margins, and engineer performance metrics.</p>
+        </div>
+        <div class="grid-item">
+          <h3>KPI Dashboard</h3>
+          <p>Real-time indicators: registration counts, pending listing reviews, open quotes, escrow reserves, engineering backlogs, and total transactions.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Security Standards</h3>
+          <p>Role-based access controls (RBAC), password hashing, 2FA readiness, user action audit logs, DB encryption, secure file uploads, and SSL protection.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Permission Hierarchy</h3>
+          <p>Configure actions: product approvals, quote modifications, invoice generation, certificate overrides, engineer allocation, and report exports.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 22</span>
+    </div>
+  </section>
+
+  <!-- PAGE 23: RECOMMENDED TECHNOLOGY STACK -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Technology Stack</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 23</div>
+      <h2>Recommended Technology Stack</h2>
+      <div class="accent"></div>
+      <p>The platform uses modern, reliable, and scalable web technologies suited for B2B/B2C healthcare commerce in Nepal. This is a Web + Admin ecosystem (no mobile app builds).</p>
+      
+      <div class="info-row">
+        <div class="info-row-title">Frontend System</div>
+        <div class="info-row-desc">React.js or Next.js, TypeScript-ready components, Tailwind CSS styling, responsive layout structures, and cross-browser support.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Backend API Engine</div>
+        <div class="info-row-desc">Node.js (NestJS/Express) or PHP Laravel, RESTful architecture, JWT security, middleware validations, and file upload systems.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Database Storage</div>
+        <div class="info-row-desc">PostgreSQL or MySQL. Optimized indexing for search queries, product category relations, transaction records, and chat messages.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Cloud Deployment</div>
+        <div class="info-row-desc">VPS Hosting (DigitalOcean, AWS, or similar), NGINX server proxy, SSL (Let's Encrypt), Docker containerization, and scheduled database backups.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-title">Integrations Gateway</div>
+        <div class="info-row-desc">eSewa, Khalti, Fonepay payment SDKs. SMTP email servers, local SMS API alerts, and Firebase notifications services.</div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 23</span>
+    </div>
+  </section>
+
+  <!-- PAGE 24: DEVELOPMENT TIMELINE -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Development Timeline</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 24</div>
+      <h2>Development Timeline</h2>
+      <div class="accent"></div>
+      <p>The timeline has been optimized for the Web + Admin Panel scope, totaling 14 weeks from project kickoff to launch.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 45mm;">Phase</th>
+            <th style="width: 25mm;">Duration</th>
+            <th>Key Deliverables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Phase 1: Requirements &amp; UI/UX</strong></td>
+            <td>Weeks 1 - 2</td>
+            <td>Requirement confirmation meetings, sitemaps, system wireframes, web design system, database schemas.</td>
+          </tr>
+          <tr>
+            <td><strong>Phase 2: Website Frontend</strong></td>
+            <td>Weeks 3 - 5</td>
+            <td>Homepage layout, category views, listing grid, product detail sheets, responsive mobile/tablet views, UI elements.</td>
+          </tr>
+          <tr>
+            <td><strong>Phase 3: Backend &amp; Admin Panel</strong></td>
+            <td>Weeks 6 - 9</td>
+            <td>Database setup, API routes development, admin panel portal, permission setup, master data registries.</td>
+          </tr>
+          <tr>
+            <td><strong>Phase 4: Business Modules</strong></td>
+            <td>Weeks 10 - 12</td>
+            <td>Marketplace features, rental lease system, engineering scheduling, quote-invoice calculators, contextual chat.</td>
+          </tr>
+          <tr>
+            <td><strong>Phase 5: Testing &amp; Launch</strong></td>
+            <td>Weeks 13 - 14</td>
+            <td>System QA, cross-browser test, load review, production deployment, client admin training, handover documentation.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-panel">
+        <p><strong>Note:</strong> Delivery dates depend on prompt feedback on design elements and milestone approvals. Milestones will be tracked via a shared workspace project dashboard.</p>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 24</span>
+    </div>
+  </section>
+
+  <!-- PAGE 25: FINANCIAL PROPOSAL -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Financial Proposal</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 25</div>
+      <h2>Financial Proposal</h2>
+      <div class="accent"></div>
+      <p>The financial proposal covers the core development and implementation of the Mediko Bazar Website and Admin Panel.</p>
+      
+      <h3>Project Investment Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Component Scope</th>
+            <th style="text-align: right;">Base Amount (NPR)</th>
+            <th style="text-align: right;">Applied Discount (NPR)</th>
+            <th style="text-align: right; background: var(--teal); color: var(--white);">Net Investment (NPR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Website + Admin Panel Ecosystem</strong></td>
+            <td style="text-align: right;">5,00,000</td>
+            <td style="text-align: right;">25,000</td>
+            <td style="text-align: right; font-weight: 700; color: var(--teal);">4,75,000</td>
+          </tr>
+          <tr class="table-highlight">
+            <td><strong>Total Project Investment</strong></td>
+            <td style="text-align: right;">5,00,000</td>
+            <td style="text-align: right;">25,000</td>
+            <td style="text-align: right; font-weight: 800;">NPR 4,75,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Website + Admin Panel Cost Breakdown</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Section Component</th>
+            <th style="text-align: right; width: 45mm;">Amount (NPR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UI/UX Designing &amp; Visual Guides</td>
+            <td style="text-align: right;">60,000</td>
+          </tr>
+          <tr>
+            <td>Website Responsive Frontend Build</td>
+            <td style="text-align: right;">90,000</td>
+          </tr>
+          <tr>
+            <td>Core Database &amp; Secure API Backend</td>
+            <td style="text-align: right;">1,00,000</td>
+          </tr>
+          <tr>
+            <td>Admin Control Panel Development</td>
+            <td style="text-align: right;">90,000</td>
+          </tr>
+          <tr>
+            <td>Marketplace Modules (Enquiries, RFQ, Quotes, Invoices)</td>
+            <td style="text-align: right;">80,000</td>
+          </tr>
+          <tr>
+            <td>Service Modules (Rental Lease, Engineering Booking, Vendor KYC)</td>
+            <td style="text-align: right;">60,000</td>
+          </tr>
+          <tr>
+            <td>Testing, Deployment Configuration, Training &amp; Handover</td>
+            <td style="text-align: right;">20,000</td>
+          </tr>
+          <tr style="font-weight: 700;">
+            <td>Total Base Amount</td>
+            <td style="text-align: right;">NPR 5,00,000</td>
+          </tr>
+          <tr style="color: var(--teal); font-weight: 700;">
+            <td>Less: Specialized Project Discount</td>
+            <td style="text-align: right;">- NPR 25,000</td>
+          </tr>
+          <tr class="table-highlight" style="font-size: 11px;">
+            <td><strong>Total Net Investment (Exclusive of VAT)</strong></td>
+            <td style="text-align: right; font-weight: 900;">NPR 4,75,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 25</span>
+    </div>
+  </section>
+
+  <!-- PAGE 26: PAYMENT MILESTONES -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Payment Milestones</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 26</div>
+      <h2>Payment Milestones</h2>
+      <div class="accent"></div>
+      <p>Payments are structured around key deliverables to align progress with commercial reviews. Calculations represent the net contract value of NPR 4,75,000.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Milestone Release</th>
+            <th style="width: 25mm; text-align: right;">Percentage</th>
+            <th style="width: 45mm; text-align: right;">Amount (NPR)</th>
+            <th>Trigger Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Project Confirmation</strong></td>
+            <td style="text-align: right;">30%</td>
+            <td style="text-align: right; font-weight: 600;">1,42,500</td>
+            <td>Paid upon contract signing, kickoff, and initialization of resources.</td>
+          </tr>
+          <tr>
+            <td><strong>2. UI/UX Design Approval</strong></td>
+            <td style="text-align: right;">20%</td>
+            <td style="text-align: right; font-weight: 600;">95,000</td>
+            <td>Paid upon approval of wireframes, theme boards, and responsive layouts.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Core Systems Development</strong></td>
+            <td style="text-align: right;">25%</td>
+            <td style="text-align: right; font-weight: 600;">1,18,750</td>
+            <td>Paid upon completion of database architectures, APIs, and frontend routes.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Quality Testing / UAT</strong></td>
+            <td style="text-align: right;">15%</td>
+            <td style="text-align: right; font-weight: 600;">71,250</td>
+            <td>Paid upon client testing, verification checks, and bug clearances.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Deployment &amp; Handover</strong></td>
+            <td style="text-align: right;">10%</td>
+            <td style="text-align: right; font-weight: 600;">47,500</td>
+            <td>Paid upon going live on production servers, admin training, and code handover.</td>
+          </tr>
+          <tr class="table-highlight">
+            <td><strong>Total Contract Value</strong></td>
+            <td style="text-align: right; font-weight: 800;">100%</td>
+            <td style="text-align: right; font-weight: 800;">NPR 4,75,000</td>
+            <td>Total Net Investment for Web + Admin ecosystem.</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 26</span>
+    </div>
+  </section>
+
+  <!-- PAGE 27: MAINTENANCE & SUPPORT PACKAGES -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Maintenance &amp; Support</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 27</div>
+      <h2>Maintenance &amp; Support Packages</h2>
+      <div class="accent"></div>
+      <p>Flexible annual support options keep the platform stable after launch. Each package covers the deployed and approved project scope; new features are estimated separately.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 35mm;">Package Name</th>
+            <th style="width: 35mm; text-align: right;">Annual Cost (NPR)</th>
+            <th>Service Level Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Basic Support</strong><br><span style="font-size: 8px; text-transform: uppercase; color: var(--teal); font-weight: 600;">Essential Care</span></td>
+            <td style="text-align: right; font-weight: 600;">25,000 / year</td>
+            <td>Email assistance for minor bugs, monthly server health reports, basic settings configuration. Best suited for teams with internal web admins.</td>
+          </tr>
+          <tr>
+            <td><strong>Standard Support</strong><br><span style="font-size: 8px; text-transform: uppercase; color: var(--teal); font-weight: 600;">Priority Care</span></td>
+            <td style="text-align: right; font-weight: 600;">50,000 / year</td>
+            <td>Priority support during business hours, security patch updates, configuration assistance, weekly database backups.</td>
+          </tr>
+          <tr>
+            <td><strong>Dedicated Support</strong><br><span style="font-size: 8px; text-transform: uppercase; color: var(--teal); font-weight: 600;">24/7 Critical Care</span></td>
+            <td style="text-align: right; font-weight: 600;">1,00,000 / year</td>
+            <td>24/7 critical issue resolution SLA, proactive monitoring, recovery assistance, dedicated developer response, and monthly enhancements guidance.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-panel">
+        <p><strong>Exclusions:</strong> Support scopes exclude third-party API charges, payment gateway transaction fees, domain registration renewals, hosting VPS renewals, and database storage additions.</p>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 27</span>
+    </div>
+  </section>
+
+  <!-- PAGE 28: WARRANTY, EXCLUSIONS & ASSUMPTIONS -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Warranty &amp; Assumptions</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 28</div>
+      <h2>Warranty, Exclusions &amp; Assumptions</h2>
+      <div class="accent"></div>
+      <p>The following parameters define code warranty bounds, operational assumptions, and excluded features to ensure project clarity.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Code Warranty</h3>
+          <p>Includes a 3-month free bug-fix warranty starting from the production launch. Covers defects in database APIs, layout glitches, and transaction logic errors.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Project Exclusions</h3>
+          <p>Third-party fees (domains, hosting, SSL, SMS gateways, payment gateway deposits, map API fees) and VAT are excluded. **Mobile applications (iOS and Android builds) are strictly out of scope.**</p>
+        </div>
+        <div class="grid-item">
+          <h3>Client Inputs</h3>
+          <p>Client must provide raw products catalogue, KYC formats, business policies, and legal guidelines in a structured, timely format.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Change Management</h3>
+          <p>Requests for features or page extensions outside of this document will be estimated under separate work orders.</p>
+        </div>
+      </div>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 28</span>
+    </div>
+  </section>
+
+  <!-- PAGE 29: COMPANY INFORMATION -->
+  <section class="page">
+    <div class="paper-header">
+      <div class="header-left">
+        <span class="mini">Mediko Bazar Proposal</span>
+        <strong>Company Information</strong>
+      </div>
+      <div class="simulcast-logo-css">
+        <span class="logo-bold">SIMULCAST</span><span class="logo-light">technologies</span>
+      </div>
+    </div>
+    <main>
+      <div class="section-kicker">Section 29</div>
+      <h2>Implementation Partner Information</h2>
+      <div class="accent"></div>
+      <p>Simulcast Technologies Pvt. Ltd. is a premier software engineering firm located in Kathmandu, Nepal, specializing in custom B2B/B2C commerce portals, enterprise CRM/ERP solutions, and operations automation pipelines.</p>
+      
+      <div class="clean-grid">
+        <div class="grid-item">
+          <h3>Solution Delivery</h3>
+          <p>Responsive marketplaces, role-based dashboards, administrative verification systems, and backend REST APIs designed for clinical standards.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Project Collaboration</h3>
+          <p>Regular review checkpoints, progress tracking, and staging demonstrations are integrated throughout the development lifecycle.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Handovers</h3>
+          <p>Production server setups, admin user guides, training files, clean source code delivery, and deployment documentation.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Post-launch Care</h3>
+          <p>Available standard annual maintenance packages for server health checks, database backups, security patches, and issue resolutions.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 4mm;">Office Contact Matrix</h3>
+      <table style="margin-top: 2mm;">
+        <thead>
+          <tr>
+            <th style="width: 45mm;">Office Location</th>
+            <th style="width: 45mm;">Official Email</th>
+            <th style="width: 45mm;">Contact Numbers</th>
+            <th>Web Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New Baneshwar-31,<br>Kathmandu, Nepal</td>
+            <td><a href="mailto:info@simulcast.com.np" style="color: var(--blue); text-decoration: none;">info@simulcast.com.np</a></td>
+            <td>+977 9851188274<br>+977 9814823222</td>
+            <td><a href="https://www.simulcast.com.np" target="_blank" style="color: var(--blue); text-decoration: none;">www.simulcast.com.np</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <div class="paper-footer">
+      <span>Simulcast Technologies Pvt. Ltd. • Mediko Bazar</span>
+      <span>Page 29</span>
+    </div>
+  </section>
+
+  <!-- PAGE 30: THANK YOU (CLOSING) -->
+  <section class="page closing-page">
+    <div class="closing-container">
+      <div class="simulcast-logo-css">
+        <span class="logo-bold" style="color: var(--white);">SIMULCAST</span><span class="logo-light" style="color: var(--cyan);">technologies</span>
+      </div>
+
+      <div class="closing-panel">
+        <h1>Thank You</h1>
+        <p>We look forward to partnering with Mediko Bazar to build a scalable, trusted healthcare equipment marketplace in Nepal. Our team is committed to delivering a robust web application and admin ecosystem that streamlines procurement, rentals, and service operations.</p>
+      </div>
+
+      <div class="closing-cta">
+        <h3>Ready for the next step?</h3>
+        <p>Confirm the project scope, designate primary project coordinates, and schedule the database &amp; requirements kickoff session.</p>
+      </div>
+
+      <div class="closing-contacts">
+        <div class="closing-column">
+          <h3>Simulcast Technologies</h3>
+          <div class="contact-row-new">
+            <b>Office</b>
+            <span>New Baneshwar-31, Kathmandu</span>
+          </div>
+          <div class="contact-row-new">
+            <b>Email</b>
+            <span><a href="mailto:info@simulcast.com.np">info@simulcast.com.np</a></span>
+          </div>
+          <div class="contact-row-new">
+            <b>Website</b>
+            <span><a href="https://www.simulcast.com.np" target="_blank">www.simulcast.com.np</a></span>
+          </div>
+        </div>
+
+        <div class="closing-column">
+          <h3>Direct Connections</h3>
+          <div class="contact-row-new">
+            <b>Mobile 1</b>
+            <span>+977 9851188274</span>
+          </div>
+          <div class="contact-row-new">
+            <b>Mobile 2</b>
+            <span>+977 9814823222</span>
+          </div>
+          <div class="contact-row-new">
+            <b>Project</b>
+            <span>Mediko Bazar Platform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

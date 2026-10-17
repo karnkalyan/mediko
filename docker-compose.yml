@@ -1,0 +1,22 @@
+services:
+  mediko:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mediko_app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3081}:${PORT:-3081}"
+    environment:
+      NODE_ENV: production
+      PORT: ${PORT:-3081}
+      DATABASE_URL: ${DATABASE_URL:-mysql://root:quantumSql%40123@host.docker.internal:3306/medico}
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-2b5de160cf4fdd10551faa3da823154a0055f8d9b384fffca7009b949ce61c1a}
+      REFRESH_TOKEN_SECRET: ${REFRESH_TOKEN_SECRET:-be55e73ad79598a1437c43d4529e1427d632266c2e4fcc1d5c9fefd5cd4306db}
+      ACCESS_TOKEN_EXPIRES: ${ACCESS_TOKEN_EXPIRES:-15m}
+      REFRESH_TOKEN_EXPIRES: ${REFRESH_TOKEN_EXPIRES:-7d}
+      SEED_ON_STARTUP: ${SEED_ON_STARTUP:-true}
+      APP_URL: ${APP_URL:-https://mediko.simulcast.com.np}
+    extra_hosts:
+      # Direct connection to host MySQL on VPS
+      - "host.docker.internal:host-gateway"

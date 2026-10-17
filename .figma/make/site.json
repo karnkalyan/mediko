@@ -1,0 +1,10 @@
+{
+  "description": "A multi-vendor healthcare marketplace connecting Nepal and international buyers with medical products, equipment, rentals, and engineering services.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

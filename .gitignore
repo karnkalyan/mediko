@@ -6,4 +6,6 @@ dist
 backend/.env
 *.log
 .DS_Store
-.figma
+.figma/*
+!.figma/make/
+!.figma/make/site.json

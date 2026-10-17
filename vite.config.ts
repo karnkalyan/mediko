@@ -2,10 +2,57 @@ import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
+import fs from 'node:fs'
 
-import siteConfiguration from './.figma/make/site.json' with { type: 'json' }
+type FigmaSiteConfiguration = {
+  title?: string
+  description?: string
+  language?: string
+  robots?: {
+    index?: boolean
+  }
+  icons?: {
+    icon?: string
+  }
+  openGraph?: {
+    image?: string
+  }
+  analytics?: {
+    googleAnalyticsId?: string
+  }
+  customScripts?: {
+    headStart?: string
+    headEnd?: string
+    bodyStart?: string
+    bodyEnd?: string
+  }
+  accessibility?: {
+    addBypassLinks?: boolean
+  }
+}
 
-// Vite config — https://vitejs.dev/config/
+let siteConfiguration: FigmaSiteConfiguration = {
+  description:
+    'A multi-vendor healthcare marketplace connecting Nepal and international buyers with medical products, equipment, rentals, and engineering services.',
+  robots: {
+    index: false,
+  },
+  accessibility: {
+    addBypassLinks: false,
+  },
+}
+
+try {
+  const siteConfigPath = path.resolve(import.meta.dirname, './.figma/make/site.json')
+  if (fs.existsSync(siteConfigPath)) {
+    siteConfiguration = {
+      ...siteConfiguration,
+      ...JSON.parse(fs.readFileSync(siteConfigPath, 'utf-8')),
+    }
+  }
+} catch {
+  // Graceful fallback if .figma/make/site.json is missing or unreadable
+}
 export default defineConfig(({ mode }) => {
   // .figma/make/deploy-preview passes `--mode development` for cached-preview builds.
   const emitSourcemaps = mode === 'development'
@@ -42,32 +89,6 @@ export default defineConfig(({ mode }) => {
   }
 })
 
-type FigmaSiteConfiguration = {
-  title?: string
-  description?: string
-  language?: string
-  robots?: {
-    index?: boolean
-  }
-  icons?: {
-    icon?: string
-  }
-  openGraph?: {
-    image?: string
-  }
-  analytics?: {
-    googleAnalyticsId?: string
-  }
-  customScripts?: {
-    headStart?: string
-    headEnd?: string
-    bodyStart?: string
-    bodyEnd?: string
-  }
-  accessibility?: {
-    addBypassLinks?: boolean
-  }
-}
 
 /** Applies /.figma/make/site.json to the generated document shell. */
 function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {

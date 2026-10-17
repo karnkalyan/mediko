@@ -1,6 +1,6 @@
-# figma-make-app
+# Mediko Bazar
 
-React + Vite + Tailwind CSS project running inside Figma Make.
+React + Vite + Tailwind CSS healthcare marketplace platform.
 
 ## Development Server
 
